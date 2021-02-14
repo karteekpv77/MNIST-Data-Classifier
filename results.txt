@@ -1,0 +1,24 @@
+1.Initially  initialized the weights as per the gaussian distribution using numpy.random.normal. 
+In order to produce the same result every time, use
+a seed defined by numpy.random.seed(80).
+
+2.Later downloaded the MNIST train and test csv files and pre-processed them by
+normalizing the content. After that created validation data from training data by taking
+20% data from each digit data and removing those records from training data. So I have
+training data which is 80% of original and then validation data which is 20% of original
+data and then the testing data.
+
+3.After getting the data did stochastic gradient descent by dividing the training data
+into multiple batches. And then choose the epochs to be equal to 20 as the number of
+nodes in the hidden layer are chosen to be equal to 32. I chose 32 by iterating through 4
+to 32 as no of hidden layer nodes and 32 gave me the best result.
+For each epoch after doing the SGD i choose those weights and use them on
+validation data and store the validation loss and whenever the validation loss becomes
+more than the previous loss i break the epoch loop as this indicates the overfitting
+region and after the while loop using testing data recorded the final accuracy of the
+model. These are the hyper parameter chosen:
+a. Lambda = 0.01 in the regularization term.
+b. Learning rate of 0.1 while doing gradient descent.
+c. Hidden nodes = 32.
+
+4.Final Accuracy:92%
